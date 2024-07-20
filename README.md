@@ -9,31 +9,40 @@ Usage
 
 Simply check out this repository and run `go test -bench=.` from it's root.
 
-If you want to see how the behavir changes with various CPU sizes, you can use `go test -bench=. -cpu=1,2,4` to test for 1,2 and 4 CPUs.
+If you want to see how the behavior changes with various CPU sizes, you can use `go test -bench=. -cpu=1,2,4` to test for 1, 2 and 4 CPUs. You can use as many CPU Cores as your physical system has.
 
 ### Example output
 
-    $ go test -bench=. -cpu=1,2,4,6,8,10
+    go test -bench=. -cpu=1,2,4
     goos: darwin
     goarch: arm64
     pkg: github.com/mwmahlberg/go-unmarshalperformance-78772815
-    Benchmark64k                2830            413607 ns/op
-    Benchmark64k-2              2952            388968 ns/op
-    Benchmark64k-4              2920            399129 ns/op
-    Benchmark64k-6              2912            397847 ns/op
-    Benchmark64k-8              2884            398933 ns/op
-    Benchmark64k-10             2946            396289 ns/op
-    Benchmark128k                663           1816750 ns/op
-    Benchmark128k-2              704           1698653 ns/op
-    Benchmark128k-4              696           1740807 ns/op
-    Benchmark128k-6              626           1703486 ns/op
-    Benchmark128k-8              699           1702414 ns/op
-    Benchmark128k-10             698           1719027 ns/op
-    Benchmark256k                652           1834965 ns/op
-    Benchmark256k-2              699           1702141 ns/op
-    Benchmark256k-4              690           1734279 ns/op
-    Benchmark256k-6              682           1733939 ns/op
-    Benchmark256k-8              700           1738449 ns/op
-    Benchmark256k-10             692           1725643 ns/op
+    Benchmark64kMapStringInterface              5490            217707 ns/op
+    Benchmark64kMapStringInterface-2            6572            172025 ns/op
+    Benchmark64kMapStringInterface-4            6513            176681 ns/op
+    Benchmark128kMapStringInterface             1321            893114 ns/op
+    Benchmark128kMapStringInterface-2           1632            707845 ns/op
+    Benchmark128kMapStringInterface-4           1604            737196 ns/op
+    Benchmark256kMapStringInterface             1322            901109 ns/op
+    Benchmark256kMapStringInterface-2           1635            706265 ns/op
+    Benchmark256kMapStringInterface-4           1606            730651 ns/op
+    Benchmark64kStruct                         16815             72051 ns/op
+    Benchmark64kStruct-2                       16618             69919 ns/op
+    Benchmark64kStruct-4                       16864             70883 ns/op
+    Benchmark128kStruct                         3979            289447 ns/op
+    Benchmark128kStruct-2                       4040            280413 ns/op
+    Benchmark128kStruct-4                       4089            286967 ns/op
+    Benchmark256kStruct                         4029            283122 ns/op
+    Benchmark256kStruct-2                       4070            282152 ns/op
+    Benchmark256kStruct-4                       4094            285352 ns/op
+    Benchmark64kEncoder                         6207            212767 ns/op
+    Benchmark64kEncoder-2                       6490            172975 ns/op
+    Benchmark64kEncoder-4                       6692            174391 ns/op
+    Benchmark128kEncoder                        1358            867077 ns/op
+    Benchmark128kEncoder-2                      1651            698896 ns/op
+    Benchmark128kEncoder-4                      1638            716011 ns/op
+    Benchmark256kEncoder                        1358            872206 ns/op
+    Benchmark256kEncoder-2                      1656            706698 ns/op
+    Benchmark256kEncoder-4                      1647            721699 ns/op
     PASS
-    ok      github.com/mwmahlberg/go-unmarshalperformance-78772815  24.838s
+    ok      github.com/mwmahlberg/go-unmarshalperformance-78772815  36.178s
